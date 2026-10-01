@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Liberty Trust Bank</title>
+<style>
+*{box-sizing:border-box}body{margin:0;background:#f4f6f8;color:#17212b;font-family:Arial,Helvetica,sans-serif}header{background:#123b63;color:#fff;padding:18px 26px;display:flex;justify-content:space-between;align-items:center}.logo{font-size:22px;font-weight:700}.wrap{max-width:1000px;margin:35px auto;padding:0 18px}.login{max-width:430px;margin:55px auto;background:#fff;border:1px solid #d6dce2;padding:30px;box-shadow:0 2px 8px #0001}h1{font-size:25px;margin:0 0 8px}.muted{color:#697684;font-size:14px;line-height:1.5}label{display:block;font-size:13px;font-weight:700;margin:19px 0 7px}input{width:100%;padding:12px;border:1px solid #bcc6d0;border-radius:3px;font-size:15px}button{background:#145a8d;color:#fff;border:0;border-radius:3px;padding:12px 18px;font-weight:700;cursor:pointer}.login button{width:100%;margin-top:22px}#error{display:none;color:#b42318;font-size:13px;margin-top:12px}.hidden{display:none}.subhead{background:#fff;border-bottom:1px solid #d8dee4;padding:22px 0}.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{background:#fff;border:1px solid #d8dee4;padding:21px;margin-top:18px}.card h2{font-size:16px;margin:0 0 13px}.balance{font-size:30px;font-weight:700;color:#173f65}.account{font-size:13px;color:#687785;margin-top:7px}.actions{display:flex;gap:10px;flex-wrap:wrap}.actions button{background:#fff;color:#145a8d;border:1px solid #145a8d}table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:12px 8px;border-bottom:1px solid #e4e8ec}th{color:#596a78;font-size:12px}.pos{color:#177245}.neg{color:#b42318}.signout{background:#fff;color:#123b63;border:1px solid #123b63}.footer{text-align:center;color:#77838e;font-size:11px;padding:28px}@media(max-width:700px){.grid{grid-template-columns:1fr}}
+</style></head><body>
+<header><div class="logo">Liberty Trust Bank</div><div>Online Banking</div></header>
+<section id="loginView" class="wrap"><div class="login"><h1>Sign in</h1><div class="muted">Access your online banking account.</div>
+<label for="username">Username</label><input id="username" autocomplete="off" placeholder="Username">
+<label for="password">Password</label><input id="password" type="password" placeholder="Password">
+<button id="loginBtn">Sign in</button><div id="error">Incorrect username or password.</div></div></section>
+<section id="dashboard" class="hidden"><div class="subhead"><div class="wrap" style="margin:0 auto"><h1>Welcome, Chaz E. Glenn</h1><div class="muted">Personal Online Banking</div></div></div>
+<div class="wrap"><div class="grid">
+<div class="card"><h2>Checking Account</h2><div class="balance">$250,000.00</div><div class="account">Checking •••• 4821</div></div>
+<div class="card"><h2>Savings Account</h2><div class="balance">$250,000.00</div><div class="account">Savings •••• 7714</div></div></div>
+<div class="card"><h2>Total Available Balance</h2><div class="balance">$500,000.00</div></div>
+<div class="card"><h2>Quick Actions</h2><div class="actions"><button onclick="alert('Transfer screen — demo only.')">Transfer Money</button><button onclick="alert('Deposit screen — demo only.')">Deposit</button><button onclick="alert('Bill pay — demo only.')">Pay a Bill</button><button class="signout" id="logoutBtn">Sign out</button></div></div>
+<div class="card"><h2>Recent Transactions</h2><table><tr><th>Date</th><th>Description</th><th>Account</th><th>Amount</th></tr>
+<tr><td>Sep 29</td><td>Direct Deposit</td><td>Checking</td><td class="pos">+$12,500.00</td></tr><tr><td>Sep 27</td><td>Transfer to Savings</td><td>Checking</td><td class="neg">−$5,000.00</td></tr><tr><td>Sep 25</td><td>Interest Credit</td><td>Savings</td><td class="pos">+$425.00</td></tr><tr><td>Sep 23</td><td>Payment</td><td>Checking</td><td class="neg">−$1,250.00</td></tr></table></div></div>
+<div class="footer">Liberty Trust Bank</div></section>
+<script>
+const loginView=document.getElementById("loginView"),dashboard=document.getElementById("dashboard"),error=document.getElementById("error");
+document.getElementById("loginBtn").addEventListener("click",function(){const u=document.getElementById("username").value.trim(),p=document.getElementById("password").value;if(u==="Chaz095"&&p==="48989"){loginView.classList.add("hidden");dashboard.classList.remove("hidden");error.style.display="none"}else error.style.display="block"});
+document.getElementById("logoutBtn").addEventListener("click",function(){dashboard.classList.add("hidden");loginView.classList.remove("hidden");document.getElementById("username").value="";document.getElementById("password").value=""});
+document.addEventListener("keydown",e=>{if(e.key==="Enter"&&!loginView.classList.contains("hidden"))document.getElementById("loginBtn").click()});
+</script></body></html>
